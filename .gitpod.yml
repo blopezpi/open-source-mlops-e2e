@@ -4,7 +4,7 @@
 
 tasks:
   - init: | 
-      git checkout dev
+      git checkout develop
       python -m venv .venv
       source .venv/bin/activate
       pip install -U pip
