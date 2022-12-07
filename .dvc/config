@@ -3,3 +3,5 @@
 ['remote "minio"']
     url = s3://test-dvc
     endpointurl = http://localhost:8000
+    version_aware = true
+    worktree = true

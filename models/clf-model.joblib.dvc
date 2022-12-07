@@ -2,3 +2,5 @@ outs:
 - md5: b2acc50c884747e1c2c23d351c7c2e27
   size: 2819983
   path: clf-model.joblib
+  version_id: 233becf3-c2b3-408e-94fa-28668118c991
+  etag: b2acc50c884747e1c2c23d351c7c2e27
