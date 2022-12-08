@@ -35,49 +35,49 @@ stages:
           targ_col: Exited
           random_state: 42
         data_split:
-          test_size: 0.25
+          test_size: 0.2
           processed_data_dir: data/processed
     outs:
     - path: data/processed
-      md5: 9f384869826bdf146e6ff572c85d0d1e.dir
+      md5: cba1330c2a2df90da650b74d214b0bd0.dir
       size: 722258
       nfiles: 4
       files:
-      - size: 135795
-        version_id: 0ea9b50b-7825-4c1a-9d50-3d2e8b846ed2
-        etag: c7ff4cca4220bce33a14e89de861e2c5
-        md5: c7ff4cca4220bce33a14e89de861e2c5
+      - size: 108867
+        version_id: cdea93bb-5843-47b7-887e-695ea62de5db
+        etag: fdfb4bb17229ba5ca7d87c398deff081
+        md5: fdfb4bb17229ba5ca7d87c398deff081
         relpath: X_test.pkl
-      - size: 405444
-        version_id: 8db0be37-d7ac-4bd8-90c4-80a7d4753955
-        etag: da4bdc53955002a05bf9f0d15aa15094
-        md5: da4bdc53955002a05bf9f0d15aa15094
+      - size: 432372
+        version_id: 21c8c048-a7ff-42b9-ba8e-87e3ce4da263
+        etag: 1b8ddaf25fc5539a826789b9ed75468e
+        md5: 1b8ddaf25fc5539a826789b9ed75468e
         relpath: X_train.pkl
-      - size: 45565
-        version_id: fbaa7010-4074-48e3-b468-e71b70fc62b9
-        etag: b7411d516759b2184cc982a914d950e2
-        md5: b7411d516759b2184cc982a914d950e2
+      - size: 36589
+        version_id: a851d398-f019-4097-b2c2-eafbcfb98cb9
+        etag: 5443405013ae6e0dbb4ebbe2ee290613
+        md5: 5443405013ae6e0dbb4ebbe2ee290613
         relpath: y_test.pkl
-      - size: 135454
-        version_id: 20123018-76da-4511-96b6-fcc8b9d2a7aa
-        etag: 8647275e1303869cfd3c6224ac6ebd3f
-        md5: 8647275e1303869cfd3c6224ac6ebd3f
+      - size: 144430
+        version_id: 87bf0811-5ddf-4f89-ae1a-aaadd36ccd5e
+        etag: 316d3427c2dd408169a28f537994bf03
+        md5: 316d3427c2dd408169a28f537994bf03
         relpath: y_train.pkl
   train:
     cmd: python src/stages/train.py --config=params.yaml
     deps:
     - path: data/processed
-      md5: 9f384869826bdf146e6ff572c85d0d1e.dir
+      md5: cba1330c2a2df90da650b74d214b0bd0.dir
       size: 722258
       nfiles: 4
       files:
-      - md5: c7ff4cca4220bce33a14e89de861e2c5
+      - md5: fdfb4bb17229ba5ca7d87c398deff081
         relpath: X_test.pkl
-      - md5: da4bdc53955002a05bf9f0d15aa15094
+      - md5: 1b8ddaf25fc5539a826789b9ed75468e
         relpath: X_train.pkl
-      - md5: b7411d516759b2184cc982a914d950e2
+      - md5: 5443405013ae6e0dbb4ebbe2ee290613
         relpath: y_test.pkl
-      - md5: 8647275e1303869cfd3c6224ac6ebd3f
+      - md5: 316d3427c2dd408169a28f537994bf03
         relpath: y_train.pkl
     - path: src/stages/train.py
       md5: 7be4632c2f28599636d9548673e8d249
@@ -110,20 +110,20 @@ stages:
             max_depth: 20
     outs:
     - path: models/clf-model.joblib
-      md5: 13e47f9699339a8451b0f631a8602ae5
-      size: 20682184
-      version_id: e9e3d444-1726-4166-81d4-88b9b5a6617d
-      etag: 13e47f9699339a8451b0f631a8602ae5
+      md5: 7b42a5786c0cc7d088d3920b2333e9d9
+      size: 21916264
+      version_id: c922b479-eeab-4f0f-8527-2dfb17709ceb
+      etag: 7b42a5786c0cc7d088d3920b2333e9d9
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
     deps:
     - path: data/processed
-      md5: 9f384869826bdf146e6ff572c85d0d1e.dir
+      md5: cba1330c2a2df90da650b74d214b0bd0.dir
       size: 722258
       nfiles: 4
     - path: models/clf-model.joblib
-      md5: 13e47f9699339a8451b0f631a8602ae5
-      size: 20682184
+      md5: 7b42a5786c0cc7d088d3920b2333e9d9
+      size: 21916264
     - path: src/stages/eval.py
       md5: a2a26bf96e68e2cfbe16b89d15f91f37
       size: 2430
@@ -147,7 +147,7 @@ stages:
           targ_col: Exited
           random_state: 42
         data_split:
-          test_size: 0.25
+          test_size: 0.2
           processed_data_dir: data/processed
         train:
           model_type: randomforest
@@ -158,11 +158,11 @@ stages:
             max_depth: 20
     outs:
     - path: metrics.json
-      md5: 74215be39d8e96aeb80424734c05c30e
+      md5: d09999567bf1267d286f451e89ae31f9
       size: 67
     - path: reports/feat_imp.csv
-      md5: 8121a8e2486e996a57579bb709054607
+      md5: e3f542978e5425e62994b7536cc7cba7
       size: 186
     - path: reports/figures/cm.png
-      md5: 3592f8149ee72012e5df155381f68140
-      size: 10022
+      md5: 459e0d2fdf612ddf96cffe516a768dae
+      size: 10380
