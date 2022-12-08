@@ -70,6 +70,15 @@ stages:
       md5: cba1330c2a2df90da650b74d214b0bd0.dir
       size: 722258
       nfiles: 4
+      files:
+      - md5: fdfb4bb17229ba5ca7d87c398deff081
+        relpath: X_test.pkl
+      - md5: 1b8ddaf25fc5539a826789b9ed75468e
+        relpath: X_train.pkl
+      - md5: 5443405013ae6e0dbb4ebbe2ee290613
+        relpath: y_test.pkl
+      - md5: 316d3427c2dd408169a28f537994bf03
+        relpath: y_train.pkl
     - path: src/stages/train.py
       md5: 7be4632c2f28599636d9548673e8d249
       size: 2125
@@ -93,7 +102,7 @@ stages:
           targ_col: Exited
           random_state: 42
         train:
-          model_type: randomforest
+          model_type: lightgbm
           model_dir: models
           model_path: models/clf-model.joblib
           params:
@@ -101,8 +110,10 @@ stages:
             max_depth: 20
     outs:
     - path: models/clf-model.joblib
-      md5: 0e585591174c1699fc7e6b896070a4a4
-      size: 5519176
+      md5: 8735e7f021a3c4c7ddadf1013844949d
+      size: 176981
+      version_id: c916d33e-2501-4713-927a-6f0b15c0c4f3
+      etag: 8735e7f021a3c4c7ddadf1013844949d
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
     deps:
@@ -111,8 +122,8 @@ stages:
       size: 722258
       nfiles: 4
     - path: models/clf-model.joblib
-      md5: 0e585591174c1699fc7e6b896070a4a4
-      size: 5519176
+      md5: 8735e7f021a3c4c7ddadf1013844949d
+      size: 176981
     - path: src/stages/eval.py
       md5: a2a26bf96e68e2cfbe16b89d15f91f37
       size: 2430
@@ -139,7 +150,7 @@ stages:
           test_size: 0.2
           processed_data_dir: data/processed
         train:
-          model_type: randomforest
+          model_type: lightgbm
           model_dir: models
           model_path: models/clf-model.joblib
           params:
@@ -147,11 +158,11 @@ stages:
             max_depth: 20
     outs:
     - path: metrics.json
-      md5: c75a2ad2b1b48cfc5685c6505cc2d4a5
-      size: 66
+      md5: f6011ecdf59772eeac41e1de5f1fe58a
+      size: 67
     - path: reports/feat_imp.csv
-      md5: 98b5f95ee09c67cbdafe41c234476c45
-      size: 185
+      md5: 4139833b6ad3f9404cd892e94fd2ffdc
+      size: 187
     - path: reports/figures/cm.png
-      md5: 48d46ff3a3fa47c8018998458d978b9b
-      size: 10477
+      md5: 185f7a82709e44be5b29504c9ea9af9c
+      size: 10687

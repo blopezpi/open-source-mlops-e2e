@@ -3,3 +3,14 @@ outs:
   size: 466888
   nfiles: 2
   path: raw
+  files:
+  - size: 314176
+    version_id: 7f10bd4d-74d7-47d6-b07e-e7ec274f1cb7
+    etag: f12533323fdb883c0623ae78984ca921
+    md5: 78f8f2e8ac2b7b2b6aa4d75fcc402f47
+    relpath: Churn_Modelling_France.csv
+  - size: 152712
+    version_id: b3e164dd-c49b-4d83-aca2-cd8d385804eb
+    etag: 834f6345adabd4460db1e428ccea152f
+    md5: a2eb40907d681c63a5cddcd43013ca6d
+    relpath: Churn_Modelling_Spain.csv
