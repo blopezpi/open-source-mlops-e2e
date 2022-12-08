@@ -70,15 +70,6 @@ stages:
       md5: cba1330c2a2df90da650b74d214b0bd0.dir
       size: 722258
       nfiles: 4
-      files:
-      - md5: fdfb4bb17229ba5ca7d87c398deff081
-        relpath: X_test.pkl
-      - md5: 1b8ddaf25fc5539a826789b9ed75468e
-        relpath: X_train.pkl
-      - md5: 5443405013ae6e0dbb4ebbe2ee290613
-        relpath: y_test.pkl
-      - md5: 316d3427c2dd408169a28f537994bf03
-        relpath: y_train.pkl
     - path: src/stages/train.py
       md5: 7be4632c2f28599636d9548673e8d249
       size: 2125
@@ -106,14 +97,12 @@ stages:
           model_dir: models
           model_path: models/clf-model.joblib
           params:
-            n_estimators: 150
+            n_estimators: 50
             max_depth: 20
     outs:
     - path: models/clf-model.joblib
-      md5: b741c7b90c0d926180e9be9b10a8b265
-      size: 16467224
-      version_id: d6af6d59-76b8-4844-8e80-518b8d8a7cf2
-      etag: b741c7b90c0d926180e9be9b10a8b265
+      md5: 0e585591174c1699fc7e6b896070a4a4
+      size: 5519176
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
     deps:
@@ -122,8 +111,8 @@ stages:
       size: 722258
       nfiles: 4
     - path: models/clf-model.joblib
-      md5: b741c7b90c0d926180e9be9b10a8b265
-      size: 16467224
+      md5: 0e585591174c1699fc7e6b896070a4a4
+      size: 5519176
     - path: src/stages/eval.py
       md5: a2a26bf96e68e2cfbe16b89d15f91f37
       size: 2430
@@ -154,15 +143,15 @@ stages:
           model_dir: models
           model_path: models/clf-model.joblib
           params:
-            n_estimators: 150
+            n_estimators: 50
             max_depth: 20
     outs:
     - path: metrics.json
-      md5: 3dfa438b0c64f543a800c8f82e259e6d
-      size: 67
+      md5: c75a2ad2b1b48cfc5685c6505cc2d4a5
+      size: 66
     - path: reports/feat_imp.csv
-      md5: a2a3ff9f855d9ed224fde8964d2d722f
-      size: 186
+      md5: 98b5f95ee09c67cbdafe41c234476c45
+      size: 185
     - path: reports/figures/cm.png
-      md5: fd4ba64a32b0207eea5339965854a4b2
-      size: 10005
+      md5: 48d46ff3a3fa47c8018998458d978b9b
+      size: 10477
