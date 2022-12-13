@@ -2,6 +2,6 @@
     remote = minio
 ['remote "minio"']
     url = s3://test-dvc
-    endpointurl = http://localhost:8000
+    endpointurl = https://8000-blopezpi-opensourcemlop-s6zp2j2r2rd.ws-eu78.gitpod.io
     version_aware = true
     worktree = true
